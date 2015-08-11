@@ -1,0 +1,15 @@
+Pod::Spec.new do |s|
+  s.name         = "GTNotification"
+  s.version      = "0.1"
+  s.summary      = "An in app customizable notification banner for Swift."
+  s.description  = <<-DESC
+                   Which slides/fades automatically/manually from the top/bottom of the screen.
+                   DESC
+  s.homepage     = "https://github.com/MathieuWhite/GTNotification"
+  s.license      = "MIT"
+  s.author             = { "Mathieu White" => "" }
+  #s.social_media_url   = ""
+  s.platform     = :ios, "8.4"
+  s.source = { :git => "https://github.com/MathieuWhite/GTNotification.git", :tag => s.version.to_s }
+  s.source_files  = 'GTNotification/*.swift'
+end
