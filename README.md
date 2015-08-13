@@ -1,6 +1,26 @@
 # GTNotification
 An in-app notification banner for Swift.
 
+**Setup with Cocoapods (recommended setup)**
+
+- Add the instructions below to your Podfile:
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.4'
+use_frameworks!
+
+pod 'GTNotification', '>= 0.1'
+```
+
+- Then add ```import GTNotification``` at the top of your Swift class.
+
+- Finally compile and run and you will be good to go.
+
+**Otherwise you can also manually import the framework**
+
+Just drag and drop ```'GTNotification/*.swift``` file(s) into your Xcode project and do not forget to check the checkbox entitled "Copy items if needed" and the appropriate checkboxe(s) in "Add to targets" section.
+
 **Example**
 
 ``` swift

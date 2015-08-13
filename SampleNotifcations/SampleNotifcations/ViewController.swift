@@ -99,4 +99,3 @@ class ViewController: UIViewController, GTNotificationDelegate
     }
     
 }
-

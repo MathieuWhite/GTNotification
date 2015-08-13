@@ -10,7 +10,7 @@
 
 import UIKit
 
-@objc protocol GTNotificationDelegate: NSObjectProtocol
+@objc public protocol GTNotificationDelegate: NSObjectProtocol
 {
     /**
     Tells the delegate that the notification has been dismissed
@@ -45,22 +45,22 @@ import UIKit
 A GTNotification object specifies the properties of the
 notification to display on the application's window.
 */
-class GTNotification: NSObject
+public class GTNotification: NSObject
 {
     /// The title of the notification
-    var title: String = "Sample Notification"
+    public var title: String = "Sample Notification"
     
     /// The message of the notification
-    var message: String = "This is a sample notification."
+    public var message: String = "This is a sample notification."
     
     /// The color of the notifiation background. If blurEnabled is true, the color will be ignored. The default color is white
-    var backgroundColor: UIColor = UIColor.whiteColor()
+    public var backgroundColor: UIColor = UIColor.whiteColor()
     
     /// The color of the text and image of the notification. The default value is black
-    var tintColor: UIColor = UIColor.blackColor()
+    public var tintColor: UIColor = UIColor.blackColor()
     
     /// The image icon for the notification
-    weak var image: UIImage?
+    public weak var image: UIImage?
     
     /// True if the notification should blur the content it convers, false otherwise. The default value is false
     var blurEnabled: Bool = false {
@@ -82,16 +82,16 @@ class GTNotification: NSObject
     var position: GTNotificationPosition = GTNotificationPosition.Top
     
     /// The animation of the notification when presented. The default animation is Fade
-    var animation: GTNotificationAnimation = GTNotificationAnimation.Fade
+    public var animation: GTNotificationAnimation = GTNotificationAnimation.Fade
     
     /// The action to be performed when the notification is dismissed manually
     var action: Selector?
     
     /// The target object to which the action message is sent
-    var target: AnyObject?
+    public var target: AnyObject?
     
     /// The delegate of the GTNotification
-    weak var delegate: GTNotificationDelegate?
+    public weak var delegate: GTNotificationDelegate?
     
     /**
     Adds a target and action for a particular event to an interal dispatch table.
@@ -99,7 +99,7 @@ class GTNotification: NSObject
     :param: target the target object to which the action message is sent
     :param: action a selector identifying an action message
     */
-    func addTarget(target: AnyObject, action: Selector)
+    public func addTarget(target: AnyObject, action: Selector)
     {
         self.target = target
         self.action = action
