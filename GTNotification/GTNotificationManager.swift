@@ -11,14 +11,14 @@
 import UIKit
 
 /// Identifies the position of the GTNotificationView when presented on the window
-enum GTNotificationPosition: UInt
+public enum GTNotificationPosition: UInt
 {
     case Top
     case Bottom
 }
 
 /// Identifies the animation of the GTNotificationView when presenting
-enum GTNotificationAnimation: UInt
+public enum GTNotificationAnimation: UInt
 {
     case Fade
     case Slide
@@ -28,7 +28,7 @@ enum GTNotificationAnimation: UInt
 The GTNotificationViewDelegate protocol defines an optional method to receive
 user touches on objects.
 */
-@objc private protocol GTNotificationViewDelegate: NSObjectProtocol
+@objc public protocol GTNotificationViewDelegate: NSObjectProtocol
 {
     /**
     Tells the delegate the notification view was tapped.
@@ -42,7 +42,7 @@ user touches on objects.
 A GTNotificationView object specifies a GTNotification that can be
 displayed in the app on the key window.
 */
-private class GTNotificationView: UIView
+public class GTNotificationView: UIView
 {
     // MARK: - Constants
     
@@ -69,7 +69,7 @@ private class GTNotificationView: UIView
     /// The image view of the GTNotificationView
     weak var imageView: UIImageView?
     
-    override var tintColor: UIColor? {
+    override public var tintColor: UIColor? {
         didSet
         {
             self.titleLabel?.textColor = tintColor
@@ -82,7 +82,7 @@ private class GTNotificationView: UIView
     var position: GTNotificationPosition = GTNotificationPosition.Top
     
     /// The animation of the GTNotificationView
-    var animation: GTNotificationAnimation = GTNotificationAnimation.Fade
+    public var animation: GTNotificationAnimation = GTNotificationAnimation.Fade
     
     /// The height of the GTNotificationView
     var notificationViewHeight: CGFloat?
@@ -100,11 +100,11 @@ private class GTNotificationView: UIView
     var tapGesture: UITapGestureRecognizer?
     
     /// The delegate of the GTNotificationView
-    weak var delegate: GTNotificationViewDelegate?
+    public weak var delegate: GTNotificationViewDelegate?
     
     // MARK: - Initialization
     
-    required init(coder aDecoder: NSCoder)
+    required public init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
@@ -534,12 +534,12 @@ private class GTNotificationView: UIView
     }
 }
 
-class GTNotificationManager: NSObject, GTNotificationViewDelegate
+public class GTNotificationManager: NSObject, GTNotificationViewDelegate
 {
     // MARK: - Variables
     
     /// The singleton instance of the GTNotificationManager
-    static var sharedInstance: GTNotificationManager = GTNotificationManager()
+    public static var sharedInstance: GTNotificationManager = GTNotificationManager()
     
     /// The private array of notifications queued for display
     private var mutableNotifications: [GTNotification] = []
@@ -574,7 +574,7 @@ class GTNotificationManager: NSObject, GTNotificationViewDelegate
     
     :param: notification the notification to display
     */
-    func showNotification(notification: GTNotification)
+    public func showNotification(notification: GTNotification)
     {
         // Only show one notification at a time
         if (self.currentNotificationView == nil)
@@ -639,7 +639,7 @@ class GTNotificationManager: NSObject, GTNotificationViewDelegate
     
     // MARK: - GTNotificationViewDelegate Methods
     
-    @objc private func notificationViewTapped(notificationView: GTNotificationView)
+    @objc public func notificationViewTapped(notificationView: GTNotificationView)
     {
         let notification = self.mutableNotifications.removeAtIndex(0)
         

@@ -29,3 +29,6 @@ svn
 CVS
 *.psd
 *.xcuserstate
+
+# Git files
+*.orig
